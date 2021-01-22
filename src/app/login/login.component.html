@@ -1,0 +1,54 @@
+
+
+<section class="loginGrace text-center">
+    <div class="container">
+        <div class="login-content">
+        <h1>LOGIN</h1>
+        <div class="bt-divider"></div>
+        <h4>Let’s get started!
+        </h4>
+        <div *ngIf="notUser" style="color: red;">
+                    <span>{{notUser}}</span>
+                    <br><br>
+        </div>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+           
+            <div class="form-group text-left">
+              <div class="col-sm-12">
+                <input type="email" ngModel  id="inputEmail" placeholder="Email" name="email">
+                <div *ngIf="emailErrors" style="color: red;">
+                    <br>
+                    <div *ngFor="let err of emailErrors">
+                            <span>{{err.msg}}</span>
+                            <br>
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="form-group text-left">
+              <div class="col-sm-12">
+                <input type="password" ngModel id="inputPassword" placeholder="Password" name="password">
+                <div *ngIf="passwordErrors">
+                    <br>
+                    <div *ngFor="let err of passwordErrors" style="color: red;">
+                            <span>{{err.msg}}</span>
+                            <br>
+                    </div>
+                </div>
+              </div>
+              
+            </div>
+            
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary form-control">Login</button>
+              </div>
+            </div>
+          </form>
+          <hr>
+          <h4>Don't have an acount ?</h4>
+          <a routerLink="signup" class="btn btn-primary form-control reg">Register</a>
+        </div>
+    </div>
+</section>

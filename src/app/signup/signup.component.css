@@ -1,0 +1,71 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+/* login page style  */
+
+.loginGrace {
+    text-align: center;
+    padding: 30px 0 30px 0;
+    width: 350px;
+    margin: auto;
+    border: 1px solid #dddddd;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.registerGrace {
+    width: auto;
+    max-width: 70% !important;
+    margin-top: 20px;
+}
+.loginGrace h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.bt-divider {
+    height: 2px;
+    width: 100px;
+    background-color: #12407e;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.loginGrace h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.loginGrace a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 17px;
+}
+.loginGrace button,
+.loginGrace .reg {
+    background-color: #12407e;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.registerGrace button {
+    width: 40%;
+}
+.loginGrace .reg {
+    margin-top: 0;
+}
+.registerGrace .reg {
+    width: 30%;
+} 
+.loginGrace input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #12407e;
+}
+.registerGrace input {
+    border: 1.4px solid #12407e;
+    border-radius: 5px;
+}
+
+.mainAdmin a {
+    background-color: #12407e;
+    padding: 10px 20px;
+    color: #ffffff;
+    border-radius: 5px;
+}

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="text-center">
+        <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+            <input type="text" ngModel placeholder="Entre you city" class="form-control" name="cityName">
+            <br>
+            <div *ngIf="err" style="color: red;" class="text-left">
+                <span>{{err}}</span>
+                <br><br>
+            </div>
+            <input type="submit" value="Search" class="btn btn-primary form-control">
+        </form>
+
+        <div class="weather text-center" *ngIf="getCity == true">
+            <br>
+            <div class="card">
+                <div class="card-header">
+                    Weather of {{weather[0].name}}
+                </div>
+                <div class="card-body text-left">
+                    
+                    <p class="card-text">Temperature: {{weather[0].main.temp}}F</p>
+                    <p class="card-text">Minimum Temperature: {{weather[0].main.temp_min}}F</p>
+                    <p class="card-text">Maximum Temperature: {{weather[0].main.temp_max}}F</p>
+                    <p class="card-text">Description: {{weather[0].weather[0].description}}</p>
+                    <p class="card-text">Wind Speed : {{weather[0].wind.speed}}</p>
+                    <p class="card-text">Country: {{weather[0].sys.country}}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

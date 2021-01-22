@@ -1,0 +1,75 @@
+<section class="loginGrace registerGrace text-center">
+    <div class="container">
+        <div class="login-content">
+            <h1>REGISTRATION</h1>
+            <div class="bt-divider"></div>
+            <h4>Create a new account</h4>
+            <div *ngIf="notUser" style="color: red;">
+                <span>{{notUser}}</span>
+            </div>
+            <br> <br>
+            <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" ngModel placeholder="Full Name" name="name" />
+                            </div>
+                            <div *ngIf="nameErrors">
+                                <br>
+                                <div *ngFor="let err of nameErrors" style="color: red;">
+                                    <span>{{err.msg}}</span>
+                                    <br>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="email" ngModel placeholder="Email" name="email">
+                            </div>
+                            <div *ngIf="emailErrors" style="color: red;">
+                                <br>
+                                <div *ngFor="let err of emailErrors">
+                                    <span>{{err.msg}}</span>
+                                    <br>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="password" ngModel placeholder="Password" name="password">
+                            </div>
+                            <div *ngIf="passwordErrors">
+                                <br>
+                                <div *ngFor="let err of passwordErrors" style="color: red;">
+                                    <span>{{err.msg}}</span>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <hr>
+            <br>
+            <h4>Already have an acount!</h4>
+            <a href="/login" class="btn btn-primary reg">Login</a>
+        </div>
+    </div>
+</section>

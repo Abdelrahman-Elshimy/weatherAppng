@@ -1,0 +1,28 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+/* Start style navbar  */
+.navbarGrace {
+    padding: 15px 0;
+}
+.navbarGrace .bg-light {
+    background-color: transparent !important;
+    
+}
+.navbarGrace .nav-actions li a{
+    color: #000000 !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.navbarGrace .nav-actions .actionBtn a{
+    color: #12407e !important;
+}
+.navbarGrace .nav-links li a {
+    color: #000000 !important;
+    text-transform: uppercase;
+}
+
+.navbarGrace .nav-actions li:last-child img {
+    margin-top: 4px;
+}
