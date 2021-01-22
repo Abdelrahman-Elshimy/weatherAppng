@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { LoginGuardGuard } from './login-guard.guard';
+import { LoginAuthGuardGuard } from './login-auth-guard.guard';
 
 
 @NgModule({
@@ -25,9 +27,9 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'login', component: LoginComponent},
+      {path: '', component: LoginComponent, canActivate: [LoginGuardGuard]},
+      {path: 'signup', component: SignupComponent, canActivate: [LoginGuardGuard]},
+      {path: 'home', component: HomeComponent, canActivate: [LoginAuthGuardGuard]},
       // {path: 'favorite', component: LoginComponent},
       {path: '**', component: NotFoundComponent},
     ]),
