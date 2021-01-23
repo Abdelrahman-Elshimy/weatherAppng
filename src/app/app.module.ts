@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { LoginGuardGuard } from './login-guard.guard';
 import { LoginAuthGuardGuard } from './login-auth-guard.guard';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LoginAuthGuardGuard } from './login-auth-guard.guard';
     LoginComponent,
     NavComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { LoginAuthGuardGuard } from './login-auth-guard.guard';
       {path: '', component: LoginComponent, canActivate: [LoginGuardGuard]},
       {path: 'signup', component: SignupComponent, canActivate: [LoginGuardGuard]},
       {path: 'home', component: HomeComponent, canActivate: [LoginAuthGuardGuard]},
-      // {path: 'favorite', component: LoginComponent},
+      {path: 'favorite', component: FavoriteComponent, canActivate: [LoginAuthGuardGuard]},
       {path: '**', component: NotFoundComponent},
     ]),
   ],

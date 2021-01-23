@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
+  @Output() userState = new EventEmitter<boolean>();
   errs = [];
   emailErrors = [];
   passwordErrors = [];
@@ -48,7 +50,9 @@ export class LoginComponent implements OnInit {
       }
       if(myData[0].token) {
         localStorage.setItem('token', myData[0].token);
-        
+        localStorage.setItem('user_id', myData[0].user);
+          this.router.navigate(['home']);
+          
       }
     })
   }

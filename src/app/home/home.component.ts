@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,23 @@ export class HomeComponent implements OnInit {
   err;
   getCity = false;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+  }
+  toYourFavorite(get_city_id) {
+    console.log(localStorage.getItem('user_id'));
+    this.httpClient.post('http://localhost:3001/favorite', {
+      user_id: localStorage.getItem('user_id'),
+      city_id: get_city_id
+    }).subscribe((data) => {
+      let mydata = [];
+      mydata.push(data);
+      if(mydata[0].msg == 'done') {
+        this.router.navigate(['favorite']);
+      }
+      
+    })
   }
   search(searchForm) {
     this.weather = [];

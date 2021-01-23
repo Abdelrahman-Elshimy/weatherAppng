@@ -1,0 +1,37 @@
+ <div *ngIf="favorites.length > 0">
+    <div *ngFor="let fav of cities">
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        Weather of  {{ fav.favs.name}}
+                    </div>
+                    <div class="card-body text-left">
+                        <p class="card-text">Temperature: {{fav.favs.main.temp}}F</p>
+                        <p class="card-text">Minimum Temperature: {{fav.favs.main.temp_min}}F</p>
+                        <p class="card-text">Maximum Temperature: {{fav.favs.main.temp_max}}F</p>
+                        <p class="card-text">Description: {{fav.favs.weather[0].description}}</p>
+                        <p class="card-text">Wind Speed : {{fav.favs.wind.speed}}</p>
+                        <p class="card-text">Country: {{fav.favs.sys.country}}</p>
+
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <br>
+            <br>
+
+
+    </div>
+    </div>
+    <div *ngIf="cities.length == 0">
+        <div class="container">
+            <div class="alert alert-danger">
+                No Favorite Cities
+            </div>
+        </div>
+    </div>

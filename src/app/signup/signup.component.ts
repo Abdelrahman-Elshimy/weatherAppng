@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   success;
   notUser;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -55,7 +56,7 @@ export class SignupComponent implements OnInit {
         this.notUser = myData[0].err;
       }
       if(myData[0].msg == 'done') {
-        console.log('done done');
+        this.router.navigate(['/login']);
       }
       
     })
