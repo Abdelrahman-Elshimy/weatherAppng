@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UpdateNavService } from '../update-nav.service';
+
 
 @Component({
   selector: 'app-nav',
@@ -7,32 +9,36 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+
   isUser = false;
-  constructor(private router: Router) { 
+  constructor(private router: Router, private dataService: UpdateNavService) {
     
+    this.dataService.userChange.subscribe((va) => {
+      this.isUser = va;
+    });
   }
+  get isUserValue(): boolean {
+    return this.dataService.isUser;
+  }
+
   logout() {
-    console.log(this.isUser);
     localStorage.removeItem('token');
+    localStorage.removeItem('user_id');
     this.router.navigate(['']);
-    this.isUser = false;
+    this.dataService.toggleUser();
   }
-  
+
 
   ngOnInit(): void {
-    if(localStorage.getItem('token')) {
-      this.isUser = true;
+    if (localStorage.getItem('token')) {
+      this.dataService.toggleUser();
     }
     else {
-      this.isUser = false;
+      this.dataService.toggleUser();
     }
-    
+
   }
-  
-  receiveMessage($event) {
-    console.log($event);
-    this.isUser = $event
-    console.log(this.isUser);
-  }
+
+
 
 }

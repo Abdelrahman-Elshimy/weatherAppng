@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UpdateNavService } from '../update-nav.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,13 +11,15 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
-  @Output() userState = new EventEmitter<boolean>();
+  constructor(private httpClient: HttpClient, private router: Router, private dataService: UpdateNavService) {
+    this.aIsUser = dataService.isUser;
+   }
   errs = [];
   emailErrors = [];
   passwordErrors = [];
   success;
   notUser;
+  aIsUser;
 
   ngOnInit(): void {
   }
@@ -51,8 +55,8 @@ export class LoginComponent implements OnInit {
       if(myData[0].token) {
         localStorage.setItem('token', myData[0].token);
         localStorage.setItem('user_id', myData[0].user);
-          this.router.navigate(['home']);
-          
+       this.dataService.toggleUser();
+        this.router.navigate(['home']);
       }
     })
   }

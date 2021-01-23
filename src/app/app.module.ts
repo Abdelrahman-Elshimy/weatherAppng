@@ -9,8 +9,8 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { LoginGuardGuard } from './login-guard.guard';
-import { LoginAuthGuardGuard } from './login-auth-guard.guard';
+import { LoginGuardGuard } from './guards/login-guard.guard';
+import { LoginAuthGuardGuard } from './guards/login-auth-guard.guard';
 import { FavoriteComponent } from './favorite/favorite.component';
 
 
