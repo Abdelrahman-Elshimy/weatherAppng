@@ -31,10 +31,10 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('token')) {
-      this.dataService.toggleUser();
+      this.isUser = true;
     }
     else {
-      this.dataService.toggleUser();
+      this.isUser = false;
     }
 
   }
